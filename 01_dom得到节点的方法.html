@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            float: left;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按我</button>
+    <div class="box" id="box">
+        <P></P>
+        <P></P>
+        <P></P>
+        <P class="haha"> 小明</P>
+        <P></P>
+        <P class="haha"></P>
+    </div>
+    <script>
+        //得到一个元素，得到按钮
+        var btn = document.querySelector('#btn');
+        //得到很多元素，加个All表示得到很多元素
+        var hahas = document.querySelectorAll('#box p.haha');
+
+        btn.onclick = function () {
+            for ( var i = 0; i < hahas.length; i++) {
+                hahas[i].style.background = 'red';
+            }
+        }
+    </script>
+</body>
+
+</html>

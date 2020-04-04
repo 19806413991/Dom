@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/*         这里不能用类名去表示子元素中的父元素的样式。不然就无法实现
+           不能写成
+        box {
+            width: 700px;
+            height: 300px;
+        } 要写成下面的*/
+        div{
+            width: 700px;
+            height: 200px;
+        }
+
+        p {
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            float: left;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按我小明的父盒子变绿</button>
+    <button id="btn1">按我小明的前一个盒子变粉</button>
+    <button id="btn2">按我小明的后一个兄弟变红</button>
+    <button id="btn3">按我让盒子的第一个子元素变蓝</button>
+    <button id="btn4">按我让盒子的最后一个元素变红</button>
+    <button id="btn5">按我让盒子的所有子元素变橙</button>
+    <div class="box" id="box">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p id="xiaoming">小明</p>
+        <p></p>
+        <p></p>
+    </div>
+    <script>
+        //得到元素，
+        var btn = document.querySelector('#btn');
+        var btn1 = document.querySelector('#btn1');
+        var btn2 = document.querySelector('#btn2');
+        var btn3 = document.querySelector('#btn3');
+        var btn4 = document.querySelector('#btn4');
+        var btn5 = document.querySelector('#btn5');
+        var box = document.querySelector('#box');
+        var xiaoming = document.querySelector('#xiaoming');
+        btn.onclick = function () {
+            //小明的父盒子变色
+           xiaoming.parentNode.style.background='green';
+        }
+        //小明的前一个兄弟变粉
+        btn1.onclick=function(){
+            xiaoming.previousElementSibling.style.background='pink';
+        }
+        btn2.onclick=function(){
+           xiaoming.nextElementSibling.style.background='red';
+        }
+        btn3.onclick=function(){
+           box.firstElementChild.style.background='blue';
+        }
+        btn4.onclick=function(){
+           box.lastElementChild.style.background='red';
+        }
+        //让所有子元素变色的方法
+        btn5.onclick=function(){
+            var childNodes=box.childNodes;
+            for(i=0;i<childNodes.length;i++){
+                //判断子元素的项是不是1，子元素中1表示一个元素，3表示空格之类的。
+                if(childNodes[i].nodeType==1){
+                    childNodes[i].style.background='orange';
+                }
+            }
+        }
+
+    </script>
+</body>
+
+</html>

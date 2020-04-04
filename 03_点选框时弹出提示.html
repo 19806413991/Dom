@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            height: 150px;
+            border: 1px solid red;
+            margin: 50px auto;
+            position: relative;
+        }
+        .box p{
+            padding: 10px ;
+        }
+        .box label {
+            /* 触摸时是小手图标 */
+            cursor: pointer;
+        }
+        .box .tip{
+            position: absolute;
+            width: 160px;
+            height: 60px;
+            border: 1px solid black;
+            right: 10px;
+            bottom: 30px;
+            background-color: coral;
+            border-radius: 6px;
+            padding: 6px;
+            line-height: 30px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>
+            <input type="text">
+        </p>
+        <p>
+            <input type="text">
+        </p>
+        <p>
+            <label id="mylabel">
+                <input type="checkbox">
+                十天内免登录
+            </label>
+        </p>
+        <div class="tip" id="tip">
+            提示：如果你在网吧，请不要勾选
+        </div>
+    </div>
+    <div></div>
+    <script>
+        var mylabel=document.querySelector('#mylabel');
+        var tip=document.querySelector('#tip');
+        //鼠标碰上去让tip中的内容显示
+        mylabel.onmouseenter=function(){
+            tip.style.display='block';
+        }
+        //鼠标离开隐藏
+        mylabel.onmouseleave=function(){
+            tip.style.display='none';
+        }
+    </script>
+</body>
+</html>
